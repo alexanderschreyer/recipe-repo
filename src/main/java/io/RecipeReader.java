@@ -1,4 +1,4 @@
-package src.io;
+package io;
 
 import java.io.IOException;
 import java.net.URI;
@@ -7,15 +7,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class JSONParser {
+import model.Recipe;
 
-    public String readFromJSON(String filePathStr) {
-        List<String> lines;
+public class RecipeReader {
+    
+    public List<Recipe> readRecipesFromJSON(String filePathStr) {
+        String jsonContent;
         try {
-            lines = Files.readAllLines(Path.of(new URI("file:///" + filePathStr)));
-            for (String string : lines) {
-                System.out.println(string);
-            }
+            jsonContent = Files.readString(Path.of(new URI("file:///" + filePathStr)));
+            String[] parts = jsonContent.split("");
             return null;
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
