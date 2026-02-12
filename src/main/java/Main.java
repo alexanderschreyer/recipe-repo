@@ -5,10 +5,9 @@ import model.Recipe;
 import java.util.List;
 
 public class Main {
-    public static String dirPathStr = "/Users/alexanderschreyer/Documents/08-personal-projects/05-programming/java/recipe-app/src/main/resources/data/";
 
     public static void main(String[] args) {
-        RecipeRepository rr = new RecipeRepository(dirPathStr);
+        RecipeRepository rr = new RecipeRepository();
         List<Recipe> rs = rr.readRecipesFromJSON();
 
         // Print out recipes to check if read operation was successful
@@ -20,5 +19,8 @@ public class Main {
             }
             System.out.println("\n");
         }
+
+        Recipe recipe = new Recipe("scrambled-eggs", "Scrambled Eggs");
+        rr.writeRecipeToJSON(recipe);
     }
 }
