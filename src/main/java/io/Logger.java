@@ -11,27 +11,27 @@ import java.util.List;
 public class Logger {
     public static final Path filePath = Path.of("logs/log.txt");
 
-    public static void logDebug(String component, String message) {
+    public static void logDebug(Object component, String message) {
         log("DEBUG", component, message);
     }
 
-    public static void logInfo(String component, String message) {
+    public static void logInfo(Object component, String message) {
         log("INFO", component, message);
     }
 
-    public static void logWarning(String component, String message) {
+    public static void logWarning(Object component, String message) {
         log("WARNING", component, message);
     }
 
-    public static void logError(String component, String message) {
+    public static void logError(Object component, String message) {
         log("ERROR", component, message);
     }
 
-    public static void logFatal(String component, String message) {
+    public static void logFatal(Object component, String message) {
         log("FATAL", component, message);
     }
 
-    private static void log(String logLevel, String component, String message) {
+    private static void log(String logLevel, Object component, String message) {
         String currentDate = getCurrentTimestamp("yyyy-MM-dd");
 
         List<String> logEntries = new ArrayList<>();
@@ -54,7 +54,7 @@ public class Logger {
             logEntries.add(currentDate);
         }
         logEntries.add(
-            getCurrentTimestamp("yyyy-MM-dd HH:mm:ss.nn") + " " + logLevel + " " + component + " - " + message);
+            getCurrentTimestamp("yyyy-MM-dd HH:mm:ss.nn") + " " + logLevel + " " + component.getClass().getSimpleName() + " - " + message);
 
         try {
             Files.write(filePath, logEntries);
