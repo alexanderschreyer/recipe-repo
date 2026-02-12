@@ -14,11 +14,13 @@ import model.Recipe;
 import tools.jackson.databind.ObjectMapper;
 
 public class RecipeRepository {
-    private final Path dir = Path.of("data");
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final Path dir;
+    private final ObjectMapper objectMapper;
 
     public RecipeRepository() {
         // TODO: READ PATH FROM APPLICATION PROPERTIES (?)
+        dir = Path.of("data");
+        objectMapper = new ObjectMapper();
     }
 
     private void checkDirectory() {
@@ -27,39 +29,30 @@ public class RecipeRepository {
                 Files.createDirectory(dir);
             } catch (IOException e) {
                 // TODO: LOGGING
-                throw new RuntimeException("Data directory could not be created.");
+                throw new RuntimeException("ERROR: Data directory could not be created.");
             }
         }
+    }
+    
+    public List<Recipe> readRecipesFromJSON() {
+        checkDirectory();
+        List<Recipe> recipes = new ArrayList<>();
+        try (Stream<Path> fileStream = Files.list(dir)) {
+            List<Path> files = fileStream.toList();
+            for (Path file : files) {
+                InputStream src = Files.newInputStream(file);
+                Recipe recipe = objectMapper.readValue(src, Recipe.class);
+                recipes.add(recipe);
+            }
+        } catch (IOException e) {
+            System.err.println("ERROR");
+            // TODO: LOGGING
+        }
+        return recipes;
     }
 
     public void writeRecipeToJSON(Recipe recipe) {
         checkDirectory();
         objectMapper.writeValue(new File(dir + "/" + recipe.getId() + ".json"), recipe);
-    }
-    
-    public List<Recipe> readRecipesFromJSON() {
-        checkDirectory();
-
-        List<Recipe> output = new ArrayList<>();
-
-        // Iterate over every file in the directory and map to a recipe object
-        if (dir != null) {
-            try (Stream<Path> files = Files.list(dir)) {
-                List<Path> fileList = files.toList();
-                for (Path file : fileList) {
-                    InputStream src = Files.newInputStream(file);
-                    Recipe recipe = objectMapper.readValue(src, Recipe.class);
-                    output.add(recipe);
-                }
-            } catch (IOException e) {
-                System.err.println("ERROR");
-                // TODO: LOGGING
-            }
-        } else {
-            System.err.println("ERROR");
-            // TODO: LOGGING
-        }
-
-        return output;
     }
 }
