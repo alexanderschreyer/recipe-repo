@@ -1,5 +1,10 @@
+# local dot files
 .DS_Store
 .idea
+.vscode
+
+# other local files
+your-project-name.iml
 
 # output folder automatically created by Maven
 /target/
