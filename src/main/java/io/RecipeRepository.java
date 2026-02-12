@@ -40,9 +40,13 @@ public class RecipeRepository {
         try (Stream<Path> fileStream = Files.list(dir)) {
             List<Path> files = fileStream.toList();
             for (Path file : files) {
-                InputStream src = Files.newInputStream(file);
-                Recipe recipe = objectMapper.readValue(src, Recipe.class);
-                recipes.add(recipe);
+                try (InputStream src = Files.newInputStream(file)) {
+                    Recipe recipe = objectMapper.readValue(src, Recipe.class);
+                    recipes.add(recipe);
+                } catch (IOException e) {
+                    Logger.logWarning(this, "'" + file + "'" + " was skipped due to an issue." +
+                            "Please make sure the file exists and is formatted properly.");
+                }
             }
         } catch (IOException e) {
             Logger.logError(this, "One ore more JSON files could not be read.");
