@@ -20,7 +20,7 @@ public class Main {
             System.out.println("\n");
         }
 
-        Recipe recipe = new Recipe("scrambled-eggs", "Scrambled Eggs");
-        rr.writeRecipeToJSON(recipe);
+        // Recipe recipe = new Recipe("scrambled-eggs", "Scrambled Eggs");
+        // rr.writeRecipeToJSON(recipe);
     }
 }

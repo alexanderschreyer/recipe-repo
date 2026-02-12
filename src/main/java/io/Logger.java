@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Logger {
+    public static final Path filePath = Path.of("logs/log.txt");
 
     public static void logDebug(String component, String message) {
         log("DEBUG", component, message);
@@ -33,18 +34,17 @@ public class Logger {
     private static void log(String logLevel, String component, String message) {
         String currentDate = getCurrentTimestamp("yyyy-MM-dd");
 
-        Path path = Path.of("./src/oop2/project/data/log.txt");
         List<String> logEntries = new ArrayList<>();
 
-        if (!Files.exists(path)) {
+        if (!Files.exists(filePath)) {
             try {
-                Files.createFile(path);
+                Files.createFile(filePath);
             } catch (IOException e) {
                 System.err.println("ERROR LoggingService - Log file could not be created.");
             }
         } else {
             try {
-                logEntries.addAll(Files.readAllLines(path));
+                logEntries.addAll(Files.readAllLines(filePath));
             } catch (IOException e) {
                 System.err.println("ERROR LoggingService - Could not read from log file.");
             }
@@ -57,7 +57,7 @@ public class Logger {
             getCurrentTimestamp("yyyy-MM-dd HH:mm:ss.nn") + " " + logLevel + " " + component + " - " + message);
 
         try {
-            Files.write(path, logEntries);
+            Files.write(filePath, logEntries);
         } catch (IOException e) {
             System.err.println("ERROR LoggingService - Could not write to log file.");
         }
