@@ -13,6 +13,8 @@ public class Recipe {
     private List<Ingredient> ingredients;
     private List<String> steps;
 
+    public Recipe() {}
+
     public Recipe(String id, String name) {
         this.id = id;
         this.name = name;
@@ -67,5 +69,9 @@ public class Recipe {
 
     public void removeStep(int index) {
         this.steps.remove(index);
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 }

@@ -1,25 +1,17 @@
 package model;
 
 public class Ingredient {
-    private String id;
     private String name;
+    private int quantity;
     private String unit;
 
-    private float quantity;
+    // Default constructor required for Jackson Databind
+    public Ingredient() {}
 
-    public Ingredient(String id, String name, String unit, float quantity) {
-        this.id = id;
+    public Ingredient(String name, int quantity, String unit) {
         this.name = name;
-        this.unit = unit;
         this.quantity = quantity;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.unit = unit;
     }
 
     public String getName() {
@@ -30,11 +22,15 @@ public class Ingredient {
         this.name = name;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+
     public String getUnit() {
         return unit;
     }
 
-    public float getQuantity() {
-        return quantity;
-    }
+    public void setUnit(String unit) { this.unit = unit; }
 }
