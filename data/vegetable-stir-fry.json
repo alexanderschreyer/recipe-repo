@@ -1,0 +1,41 @@
+{
+  "id": "vegetable-stir-fry",
+  "name": "Vegetable Stir Fry",
+  "description": "A quick and healthy mix of fresh vegetables sautéed in a savory soy sauce.",
+  "servings": 3,
+  "ingredients": [
+    {
+      "name": "Broccoli",
+      "quantity": 200,
+      "unit": "g"
+    },
+    {
+      "name": "Bell pepper",
+      "quantity": 1,
+      "unit": "pcs"
+    },
+    {
+      "name": "Carrots",
+      "quantity": 2,
+      "unit": "pcs"
+    },
+    {
+      "name": "Soy sauce",
+      "quantity": 3,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Garlic",
+      "quantity": 2,
+      "unit": "cloves"
+    }
+  ],
+  "steps": [
+    "Wash and chop all vegetables into bite-sized pieces.",
+    "Heat oil in a wok or large pan.",
+    "Sauté garlic until fragrant.",
+    "Add vegetables and stir fry over high heat.",
+    "Pour in soy sauce and toss to coat evenly.",
+    "Cook until vegetables are tender but still crisp."
+  ]
+}

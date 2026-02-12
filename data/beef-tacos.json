@@ -1,0 +1,41 @@
+{
+  "id": "beef-tacos",
+  "name": "Beef Tacos",
+  "description": "Seasoned ground beef served in crispy taco shells with fresh toppings.",
+  "servings": 4,
+  "ingredients": [
+    {
+      "name": "Ground beef",
+      "quantity": 500,
+      "unit": "g"
+    },
+    {
+      "name": "Taco shells",
+      "quantity": 8,
+      "unit": "pcs"
+    },
+    {
+      "name": "Tomato",
+      "quantity": 2,
+      "unit": "pcs"
+    },
+    {
+      "name": "Cheddar cheese",
+      "quantity": 100,
+      "unit": "g"
+    },
+    {
+      "name": "Lettuce",
+      "quantity": 100,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    "Cook ground beef in a skillet over medium heat.",
+    "Season the beef with taco spices.",
+    "Chop tomatoes and shred lettuce.",
+    "Warm taco shells according to package instructions.",
+    "Fill shells with beef and top with cheese, tomato, and lettuce.",
+    "Serve immediately while warm."
+  ]
+}

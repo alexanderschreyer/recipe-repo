@@ -1,0 +1,41 @@
+{
+  "id": "chicken-alfredo",
+  "name": "Chicken Alfredo",
+  "description": "Creamy pasta with grilled chicken, Parmesan cheese, and a rich Alfredo sauce.",
+  "servings": 4,
+  "ingredients": [
+    {
+      "name": "Fettuccine",
+      "quantity": 400,
+      "unit": "g"
+    },
+    {
+      "name": "Chicken breast",
+      "quantity": 2,
+      "unit": "pcs"
+    },
+    {
+      "name": "Heavy cream",
+      "quantity": 250,
+      "unit": "ml"
+    },
+    {
+      "name": "Parmesan cheese",
+      "quantity": 80,
+      "unit": "g"
+    },
+    {
+      "name": "Garlic",
+      "quantity": 2,
+      "unit": "cloves"
+    }
+  ],
+  "steps": [
+    "Cook the fettuccine in salted water until al dente.",
+    "Season and grill the chicken breast, then slice it.",
+    "Sauté garlic in a pan over medium heat.",
+    "Add heavy cream and simmer gently.",
+    "Stir in Parmesan cheese until smooth.",
+    "Combine pasta, sauce, and sliced chicken before serving."
+  ]
+}
