@@ -1,31 +1,31 @@
 {
-  "id": "spaghetti-carbonara",
-  "name": "Spaghetti Carbonara",
-  "description": "A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+  "id": "szechuan-chicken",
+  "name": "Szechuan Chicken",
+  "description": "A classic Chinese dish with chicken, rice and chinese peppercorn.",
   "servings": 4,
   "ingredients": [
     {
-      "name": "Spaghetti",
+      "name": "ing1",
       "quantity": 400,
       "unit": "g"
     },
     {
-      "name": "Pancetta",
+      "name": "ing2",
       "quantity": 150,
       "unit": "g"
     },
     {
-      "name": "Eggs",
+      "name": "ing3",
       "quantity": 4,
       "unit": "pcs"
     },
     {
-      "name": "Parmesan cheese",
+      "name": "ing4",
       "quantity": 50,
       "unit": "g"
     },
     {
-      "name": "Black pepper",
+      "name": "ing5",
       "quantity": 1,
       "unit": "tsp"
     }
@@ -36,6 +36,5 @@
     "Whisk eggs with grated Parmesan and black pepper.",
     "Drain pasta and combine with pancetta.",
     "Remove from heat and stir in egg mixture."
-  ],
-  "tags": ["italian", "pasta", "quick"]
+  ]
 }
