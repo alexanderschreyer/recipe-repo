@@ -28,8 +28,8 @@ public class RecipeRepository {
             try {
                 Files.createDirectory(dir);
             } catch (IOException e) {
-                // TODO: LOGGING
-                throw new RuntimeException("ERROR: Data directory could not be created.");
+                Logger.logFatal(this, "Data directory could not be created.");
+                throw new RuntimeException("FATAL: Data directory could not be created.");
             }
         }
     }
@@ -45,8 +45,7 @@ public class RecipeRepository {
                 recipes.add(recipe);
             }
         } catch (IOException e) {
-            System.err.println("ERROR");
-            // TODO: LOGGING
+            Logger.logError(this, "One ore more JSON files could not be read.");
         }
         return recipes;
     }
