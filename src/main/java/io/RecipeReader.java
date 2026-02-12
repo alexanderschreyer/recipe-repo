@@ -13,10 +13,10 @@ import model.Recipe;
 
 import tools.jackson.databind.ObjectMapper;
 
-public class RecipeRepository {
+public class RecipeReader {
     private final String dirPathStr;
 
-    public RecipeRepository(String filePathStr) {
+    public RecipeReader(String filePathStr) {
         this.dirPathStr = filePathStr;
     }
     
