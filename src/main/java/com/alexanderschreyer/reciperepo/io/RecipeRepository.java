@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -17,10 +19,13 @@ public class RecipeRepository {
     private final Path dir;
     private final ObjectMapper objectMapper;
 
+    private List<Recipe> recipes;
+
     public RecipeRepository() {
         // TODO: READ PATH FROM APPLICATION PROPERTIES (?)
         dir = Path.of("data");
         objectMapper = new ObjectMapper();
+        recipes = new ArrayList<>();
     }
 
     private void checkDirectory() {
@@ -34,15 +39,16 @@ public class RecipeRepository {
         }
     }
     
-    public List<Recipe> readRecipesFromJSON() {
+    public void readRecipesFromJSON() {
         checkDirectory();
-        List<Recipe> recipes = new ArrayList<>();
         try (Stream<Path> fileStream = Files.list(dir)) {
             List<Path> files = fileStream.toList();
             for (Path file : files) {
                 try (InputStream src = Files.newInputStream(file)) {
                     Recipe recipe = objectMapper.readValue(src, Recipe.class);
-                    recipes.add(recipe);
+                    if (!recipes.contains(recipe)) {
+                        recipes.add(recipe);
+                    }
                 } catch (IOException e) {
                     Logger.logWarning(this, "'" + file + "'" + " was skipped due to an issue." +
                             "Please make sure the file exists and is formatted properly.");
@@ -51,11 +57,21 @@ public class RecipeRepository {
         } catch (IOException e) {
             Logger.logError(this, "One ore more JSON files could not be read.");
         }
-        return recipes;
+        sortRecipes();
     }
 
     public void writeRecipeToJSON(Recipe recipe) {
         checkDirectory();
         objectMapper.writeValue(new File(dir + "/" + recipe.getId() + ".json"), recipe);
+    }
+
+    private void sortRecipes() {
+        recipes = recipes.stream()
+                .sorted(Comparator.comparing(r -> r.getName().toLowerCase()))
+                .toList();
+    }
+
+    public List<Recipe> getRecipes() {
+        return Collections.unmodifiableList(recipes);
     }
 }
