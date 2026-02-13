@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>RecipeRepo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>RecipeRepo</h1>
+    <ul>
+        <li th:each="recipe : ${recipes}"
+            th:text="${recipe.getName()}">
+        </li>
+    </ul>
+</body>
+</html>
