@@ -6,7 +6,7 @@ import com.alexanderschreyer.reciperepo.model.Recipe;
 
 import java.util.List;
 
-public class Main {
+public class RecipeRepoApplication {
 
     public static void main(String[] args) {
         RecipeRepository rr = new RecipeRepository();
