@@ -1,4 +1,4 @@
-package io;
+package com.alexanderschreyer.reciperepo.io;
 
 import java.io.IOException;
 import java.nio.file.Files;

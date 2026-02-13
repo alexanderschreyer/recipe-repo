@@ -1,6 +1,8 @@
-import io.RecipeRepository;
-import model.Ingredient;
-import model.Recipe;
+package com.alexanderschreyer.reciperepo;
+
+import com.alexanderschreyer.reciperepo.io.RecipeRepository;
+import com.alexanderschreyer.reciperepo.model.Ingredient;
+import com.alexanderschreyer.reciperepo.model.Recipe;
 
 import java.util.List;
 

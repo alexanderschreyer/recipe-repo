@@ -1,4 +1,4 @@
-package io;
+package com.alexanderschreyer.reciperepo.io;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import model.Recipe;
+import com.alexanderschreyer.reciperepo.model.Recipe;
 
 import tools.jackson.databind.ObjectMapper;
 
