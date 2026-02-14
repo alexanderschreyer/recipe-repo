@@ -21,7 +21,6 @@ public class RecipeRepoController {
 
     private List<Recipe> getRecipes() {
         RecipeRepository rr = new RecipeRepository();
-        rr.readRecipesFromJSON();
         return rr.getRecipes();
     }
 }

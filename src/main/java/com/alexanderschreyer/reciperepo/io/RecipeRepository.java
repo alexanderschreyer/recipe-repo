@@ -28,6 +28,13 @@ public class RecipeRepository {
         recipes = new ArrayList<>();
     }
 
+    public List<Recipe> getRecipes() {
+        checkDirectory();
+        readRecipesFromJSON();
+        sortRecipes();
+        return Collections.unmodifiableList(recipes);
+    }
+
     private void checkDirectory() {
         if (!Files.exists(dir)) {
             try {
@@ -39,8 +46,8 @@ public class RecipeRepository {
         }
     }
     
-    public void readRecipesFromJSON() {
-        checkDirectory();
+    private void readRecipesFromJSON() {
+
         try (Stream<Path> fileStream = Files.list(dir)) {
             List<Path> files = fileStream.toList();
             for (Path file : files) {
@@ -60,18 +67,14 @@ public class RecipeRepository {
         sortRecipes();
     }
 
-    public void writeRecipeToJSON(Recipe recipe) {
-        checkDirectory();
-        objectMapper.writeValue(new File(dir + "/" + recipe.getId() + ".json"), recipe);
-    }
-
     private void sortRecipes() {
         recipes = recipes.stream()
                 .sorted(Comparator.comparing(r -> r.getName().toLowerCase()))
                 .toList();
     }
 
-    public List<Recipe> getRecipes() {
-        return Collections.unmodifiableList(recipes);
+    public void writeRecipeToJSON(Recipe recipe) {
+        checkDirectory();
+        objectMapper.writeValue(new File(dir + "/" + recipe.getId() + ".json"), recipe);
     }
 }
