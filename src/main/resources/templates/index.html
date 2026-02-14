@@ -7,8 +7,10 @@
 <body>
     <h1>RecipeRepo</h1>
     <ul>
-        <li th:each="recipe : ${recipes}"
-            th:text="${recipe.getName()}">
+        <li th:each="recipe : ${recipes}">
+            <a  th:text="${recipe.name}"
+                th:href="@{/recipes/{id}(id=${recipe.id})}">
+            </a>
         </li>
     </ul>
 </body>
