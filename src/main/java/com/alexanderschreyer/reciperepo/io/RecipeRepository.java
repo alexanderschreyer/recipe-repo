@@ -47,7 +47,6 @@ public class RecipeRepository {
     }
     
     private void readRecipesFromJSON() {
-
         try (Stream<Path> fileStream = Files.list(dir)) {
             List<Path> files = fileStream.toList();
             for (Path file : files) {
@@ -64,7 +63,6 @@ public class RecipeRepository {
         } catch (IOException e) {
             Logger.logError(this, "One ore more JSON files could not be read.");
         }
-        sortRecipes();
     }
 
     private void sortRecipes() {
