@@ -26,6 +26,7 @@ public class RecipeRepoController {
     public String recipe(@PathVariable String id, Model model) {
         for (Recipe recipe : recipes) {
             if (recipe.getId().equals(id)) {
+                // System.out.println(recipe.getId() + ", " + id);
                 model.addAttribute("recipe", recipe);
             }
         }
