@@ -7,7 +7,7 @@
 <body>
     <h1 th:text="${recipe.name}"></h1>
     <p th:text="${recipe.description}"></p>
-    <p th:text="${recipe.servings}"></p>
+    <p th:text="${'Servings: ' + recipe.servings}"></p>
     <ul>
         <li th:each="ingredient : ${recipe.ingredients}"
             th:text="${ingredient.name + ', ' + ingredient.quantity + ' ' + ingredient.unit}">

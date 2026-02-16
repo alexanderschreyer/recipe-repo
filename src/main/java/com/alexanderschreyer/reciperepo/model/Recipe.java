@@ -54,15 +54,6 @@ public class Recipe {
         this.servings = servings;
     }
 
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
-    }
-
-    public void removeIngredient(Ingredient ingredient) {
-        // Find index of ingredient and remove it from the list if it exists
-        // this.ingredients.remove(index);
-    }
-
     public void addStep(String step) {
         this.steps.add(step);
     }
@@ -73,5 +64,18 @@ public class Recipe {
 
     public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
+
+    public void removeIngredient(Ingredient ingredient) {
+        // Find index of ingredient and remove it from the list if it exists
+        // this.ingredients.remove(index);
+    }
+
+    public List<String> getSteps() {
+        return steps;
     }
 }
