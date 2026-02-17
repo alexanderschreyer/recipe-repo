@@ -6,13 +6,16 @@
 </head>
 <body>
     <h1 th:text="${recipe.name}"></h1>
+    <h2>Description</h2>
     <p th:text="${recipe.description}"></p>
     <p th:text="${'Servings: ' + recipe.servings}"></p>
+    <h2>Ingredients</h2>
     <ul>
         <li th:each="ingredient : ${recipe.ingredients}"
             th:text="${ingredient.name + ', ' + ingredient.quantity + ' ' + ingredient.unit}">
         </li>
     </ul>
+    <h2>Steps</h2>
     <ol>
         <li th:each="step : ${recipe.steps}"
             th:text="${step}">
