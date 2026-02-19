@@ -8,3 +8,6 @@ your-project-name.iml
 
 # output folder automatically created by Maven
 /target/
+
+# data files
+data
