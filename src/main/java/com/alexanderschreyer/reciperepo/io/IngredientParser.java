@@ -1,4 +1,4 @@
-package com.alexanderschreyer.reciperepo.var;
+package com.alexanderschreyer.reciperepo.io;
 
 import com.alexanderschreyer.reciperepo.model.Ingredient;
 

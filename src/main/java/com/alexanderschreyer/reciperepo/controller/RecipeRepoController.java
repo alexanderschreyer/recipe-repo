@@ -7,7 +7,7 @@ import com.alexanderschreyer.reciperepo.io.RecipeRepository;
 import com.alexanderschreyer.reciperepo.model.Ingredient;
 import com.alexanderschreyer.reciperepo.model.Recipe;
 
-import com.alexanderschreyer.reciperepo.var.IngredientParser;
+import com.alexanderschreyer.reciperepo.io.IngredientParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
