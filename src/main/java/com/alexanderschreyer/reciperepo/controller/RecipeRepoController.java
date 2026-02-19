@@ -1,23 +1,26 @@
 package com.alexanderschreyer.reciperepo.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.alexanderschreyer.reciperepo.io.RecipeRepository;
+import com.alexanderschreyer.reciperepo.model.Ingredient;
 import com.alexanderschreyer.reciperepo.model.Recipe;
 
+import com.alexanderschreyer.reciperepo.var.IngredientParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RecipeRepoController {
-    List<Recipe> recipes;
+    private RecipeRepository recipeRepository;
+    private List<Recipe> recipes;
 
     @GetMapping("/")
     public String index(Model model) {
-        RecipeRepository rr = new RecipeRepository();
-        recipes = rr.getRecipes();
+        recipeRepository = new RecipeRepository();
+        recipes = recipeRepository.getRecipes();
         model.addAttribute("recipes", recipes);
         return "index";
     }
@@ -30,5 +33,22 @@ public class RecipeRepoController {
             }
         }
         return "recipe";
+    }
+
+    @GetMapping("/new-recipe")
+    public String form() {
+        return "form";
+    }
+
+    @PostMapping("/new-recipe")
+    public String saveRecipe(@RequestParam String id,
+                             @RequestParam String name,
+                             @RequestParam String description,
+                             @RequestParam String ingredients,
+                             @RequestParam String steps) {
+        List<Ingredient> ingList = new IngredientParser().parseIngredients(ingredients);
+        List<String> stepList = Arrays.stream(steps.split(";")).toList();
+        recipeRepository.writeRecipeToJSON(new Recipe(id, name, description, ingList, stepList));
+        return "redirect:/";
     }
 }

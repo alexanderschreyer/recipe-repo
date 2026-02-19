@@ -22,6 +22,14 @@ public class Recipe {
         this.steps = new ArrayList<>();
     }
 
+    public Recipe(String id, String name, String description, List<Ingredient> ingredients, List<String> steps) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.steps = steps;
+    }
+
     public String getId() {
         return id;
     }

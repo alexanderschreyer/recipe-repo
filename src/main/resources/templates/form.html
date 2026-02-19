@@ -2,16 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>RecipeRepo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../static/style/style.css"/>
 </head>
 <body>
-<h1>Save New Recipe</h1>
-<form>
-    <label for="recipe-id">ID:</label><br>
-    <input type="text" id="recipe-id" name="recipe-id"><br><br>
-    <label for="recipe-name">Name:</label><br>
-    <input type="text" id="recipe-name" name="recipe-name"><br><br>
-    <input type="submit">
-</form>
+    <h1>Save New Recipe</h1>
+    <form action="/new-recipe" method="post">
+        <label for="id">ID:</label><br>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br><br>
+
+        <label for="name">Ingredients:</label><br>
+        <input type="text" id="ingredients" name="ingredients"><br><br>
+
+        <label for="name">Steps:</label><br>
+        <input type="text" id="steps" name="steps"><br><br>
+
+        <input type="submit">
+    </form>
 </body>
 </html>
